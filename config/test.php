@@ -38,14 +38,6 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => true,
-            'rules' => [
-                '<module:\w+>/<controller:content>/<alias:\w+>' => '<module>/<controller>/index',
-                '<module:\w+>/<controller:\w+>/<id:\d+>' => '<module>/<controller>/index',
-                '<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
-                '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
-                '<module:\w+>/<controller:\w+>' => '<module>/<controller>',
-                '<module:\w+>' => '<module>/default',
-            ],
         ],
         'user' => [
             'identityClass' => 'app\models\User',

@@ -37,6 +37,7 @@ class University extends Model
         return [
             [['name', 'country'], 'string'],
             ['limit', 'default', 'value' => 20],
+            ['page', 'default', 'value' => 1],
             [['page', 'limit'], 'number', 'integerOnly' => true]
         ];
     }
@@ -44,12 +45,12 @@ class University extends Model
     /**
      * Returns university data provider
      *
-     * @param $params
+     * @param array $params
      * @return ArrayDataProvider
      * @throws \yii\base\InvalidConfigException
      * @throws \yii\httpclient\Exception
      */
-    public function getDataProvider($params): ArrayDataProvider
+    public function getDataProvider(array $params): ArrayDataProvider
     {
         $this->load($params);
 
@@ -62,7 +63,7 @@ class University extends Model
         return new ArrayDataProvider([
             'allModels' => $data ?? [],
             'pagination' => [
-                'pageSize' => 20,
+                'pageSize' => $this->limit,
             ],
         ]);
     }
